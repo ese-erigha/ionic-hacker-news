@@ -14,7 +14,7 @@ import {NewsService} from './news.service';
 
 
 @Injectable()
-export class FeedEffects {
+export class NewsEffects {
   constructor(public actions$: Actions,public store$: Store<State>,public newsService: NewsService) {}
 
   @Effect()
@@ -23,7 +23,7 @@ export class FeedEffects {
                                             .do((action)=> new newsActions.LoadFeedsPendingAction({currentFeed: action['payload'].type}))
                                             .withLatestFrom(this.store$)
                                             .map(([action,state])=> {
-
+                                                
                                                 return {feed: state.newsState[action['payload'].type], payload: action['payload'] };
                                             })
                                             .switchMap(actionAndState =>{

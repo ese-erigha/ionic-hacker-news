@@ -1,0 +1,21 @@
+<ion-content>
+    <ion-list>
+        <ion-item class="feed" *ngFor="let feed of feeds; let i = index;">
+            <div class="feed-index" item-content>{{ i + 1}}</div>
+            <div class="feed-metadata" item-content>
+                <h2 class="feed-header">
+                    <a class="feed-header-title" (click)="viewFeed(feed,$event)">{{ feed?.title }}</a>
+                </h2>
+                <div item-content>
+                    <span>Posted by</span>
+                    <a (click)="viewUser(feed,$event)">{{ feed?.by }}</a> |
+                    <span>{{feed?.kids?.length || 0}} comments</span>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+        <ion-infinite-scroll-content loadingSpinner="crescent">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

@@ -11,6 +11,8 @@ import {ApiInterceptor} from './http.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import {SharedModule} from '../shared/shared.module';
+import { InAppBrowser } from "@ionic-native/in-app-browser";
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import {SharedModule} from '../shared/shared.module';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     HttpModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,7 +39,9 @@ import {SharedModule} from '../shared/shared.module';
       provide: HTTP_INTERCEPTORS,
       useClass: ApiInterceptor,
       multi: true,
-    }
+    },
+    InAppBrowser
+    
   ]
 })
 export class AppModule {}

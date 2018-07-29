@@ -8,6 +8,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TopPage {
 
+  feedType: string = "top";
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

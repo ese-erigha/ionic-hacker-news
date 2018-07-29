@@ -1,0 +1,40 @@
+news-list {
+
+    .scroll-content{
+        .card{
+            margin-left: 0px!important;
+            margin-right: 0px!important;
+            width: 100%!important;
+        }
+    }
+
+    .input-wrapper{
+
+        .label{
+            display: none;
+        }
+    }
+
+    .feed{
+
+        .feed-index{
+            margin-right: 25px;
+            font-weight: 700;
+            color: #5755d9;
+        }
+
+        .feed-metadata{
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+
+            .feed-header{
+
+                .feed-header-title{
+
+                    color: #727e96;
+                }
+            }
+        }
+    }
+}

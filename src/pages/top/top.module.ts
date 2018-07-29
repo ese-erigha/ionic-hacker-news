@@ -1,4 +1,4 @@
-import { PagerModule } from './../../components/pager/pager.module';
+import { NewsListModule } from '../../components/news-list/news-list.module';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { TopPage } from './top';
@@ -10,7 +10,7 @@ import { TopPage } from './top';
   ],
   imports: [
     IonicPageModule.forChild(TopPage),
-    PagerModule
+    NewsListModule
   ],
 })
 export class TopPageModule {}
