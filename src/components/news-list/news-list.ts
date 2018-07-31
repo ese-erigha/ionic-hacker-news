@@ -111,6 +111,13 @@ export class NewsListComponent implements OnInit, OnDestroy {
 
   }
 
+  viewComments(feed:Feed,event){
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    this.appCtrl.getRootNav().push('FeedPage',{id: feed.id});
+  }
+
   viewFeed(feed:Feed,event){
 
     event.preventDefault();

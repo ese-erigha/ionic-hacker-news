@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-item class="feed">
-    <div item-content class="feed-header-wrapper">
+    <div item-content flex-start class="feed-header-wrapper">
       <h3>{{feed?.title}}</h3>
       <p>
         {{ feed?.score }} points by
@@ -19,28 +19,25 @@
   </ion-item>
 
   <ion-list>
-    <ion-item *ngFor="let comment of feed?.kids">
-      <ion-grid>
-        <ion-row>
-          <ion-col col-12>
-            <div item-content class="comment">
-              <div class="tile">
-                <div class="tile-icon">
-                  <i class="icon icon-more-horiz"></i>
-                </div>
-                <div class="tile-content">
-                  <p class="tile-title text-gray">
-                    <a (click)="viewUser(comment.by)">{{ comment.by }}</a>
-                    {{ comment?.time | date: 'short' }}</p>
-                  <div class="tile-subtitle" [innerHtml]="comment?.text"></div>
-                </div>
+    <ion-grid *ngFor="let comment of feed?.kids">
+      <ion-row>
+        <ion-col col-12>
+          <div item-content class="comment">
+            <div class="tile">
+              <div class="tile-icon">
+                <i class="icon icon-more-horiz"></i>
+              </div>
+              <div class="tile-content">
+                <p class="tile-title text-gray">
+                  <a (click)="viewUser(comment.by)">{{ comment.by }}</a>
+                  {{ comment?.time | date: 'short' }}</p>
+                <div class="tile-subtitle" [innerHtml]="comment?.text"></div>
               </div>
             </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-    </ion-item>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-list>
 
 </ion-content>

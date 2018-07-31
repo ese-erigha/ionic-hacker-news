@@ -9,7 +9,7 @@
                 <div item-content>
                     <span>Posted by</span>
                     <a (click)="viewUser(feed,$event)">{{ feed?.by }}</a> |
-                    <span>{{feed?.kids?.length || 0}} comments</span>
+                    <a (click)="viewComments(feed,$event)">{{feed?.kids?.length || 0}} comments</a>
                 </div>
             </div>
         </ion-item>

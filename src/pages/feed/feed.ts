@@ -89,4 +89,8 @@ export class FeedPage {
 
   }
 
+  ionViewWillLeave(){
+   this.feed = null;
+  }
+
 }

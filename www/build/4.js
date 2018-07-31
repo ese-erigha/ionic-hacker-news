@@ -1,6 +1,6 @@
 webpackJsonp([4],{
 
-/***/ 427:
+/***/ 424:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FeedPageModule", function() { return FeedPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feed__ = __webpack_require__(446);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feed__ = __webpack_require__(435);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -134,7 +134,7 @@ var LoadItemErrorAction = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 446:
+/***/ 435:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -221,9 +221,12 @@ var FeedPage = /** @class */ (function () {
     };
     FeedPage.prototype.viewUser = function (userId) {
     };
+    FeedPage.prototype.ionViewWillLeave = function () {
+        this.feed = null;
+    };
     FeedPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-feed',template:/*ion-inline-start:"C:\dev\ionic-hacker-news\src\pages\feed\feed.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>feed</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-item class="feed">\n    <div item-content class="feed-header-wrapper">\n      <h3>{{feed?.title}}</h3>\n      <p>\n        {{ feed?.score }} points by\n\n        <a (click)="viewUser(feed.by)">{{ feed?.by }}</a>\n\n        | {{ feed?.kids?.length }} comments\n      </p>\n    </div>\n  </ion-item>\n\n  <ion-list>\n    <ion-item *ngFor="let comment of feed?.kids">\n      <ion-grid>\n        <ion-row>\n          <ion-col col-12>\n            <div item-content class="comment">\n              <div class="tile">\n                <div class="tile-icon">\n                  <i class="icon icon-more-horiz"></i>\n                </div>\n                <div class="tile-content">\n                  <p class="tile-title text-gray">\n                    <a (click)="viewUser(comment.by)">{{ comment.by }}</a>\n                    {{ comment?.time | date: \'short\' }}</p>\n                  <div class="tile-subtitle" [innerHtml]="comment?.text"></div>\n                </div>\n              </div>\n            </div>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n\n    </ion-item>\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"C:\dev\ionic-hacker-news\src\pages\feed\feed.html"*/,
+            selector: 'page-feed',template:/*ion-inline-start:"C:\dev\ionic-hacker-news\src\pages\feed\feed.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>feed</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-item class="feed">\n\n    <div item-content flex-start class="feed-header-wrapper">\n\n      <h3>{{feed?.title}}</h3>\n\n      <p>\n\n        {{ feed?.score }} points by\n\n\n\n        <a (click)="viewUser(feed.by)">{{ feed?.by }}</a>\n\n\n\n        | {{ feed?.kids?.length }} comments\n\n      </p>\n\n    </div>\n\n  </ion-item>\n\n\n\n  <ion-list>\n\n    <ion-grid *ngFor="let comment of feed?.kids">\n\n      <ion-row>\n\n        <ion-col col-12>\n\n          <div item-content class="comment">\n\n            <div class="tile">\n\n              <div class="tile-icon">\n\n                <i class="icon icon-more-horiz"></i>\n\n              </div>\n\n              <div class="tile-content">\n\n                <p class="tile-title text-gray">\n\n                  <a (click)="viewUser(comment.by)">{{ comment.by }}</a>\n\n                  {{ comment?.time | date: \'short\' }}</p>\n\n                <div class="tile-subtitle" [innerHtml]="comment?.text"></div>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\dev\ionic-hacker-news\src\pages\feed\feed.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */],
