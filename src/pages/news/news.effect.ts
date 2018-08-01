@@ -23,6 +23,8 @@ export class NewsEffects {
                                             .do((action)=> new newsActions.LoadFeedsPendingAction({currentFeed: action['payload'].type}))
                                             .withLatestFrom(this.store$)
                                             .map(([action,state])=> {
+
+                                                
                                                 
                                                 return {feed: state.newsState[action['payload'].type], payload: action['payload'] };
                                             })
@@ -59,6 +61,7 @@ export class NewsEffects {
                                                     return this.newsService.getItems(actionAndState.feed[actionAndState.payload.pageNumber])
                                                                
                                                                     .map((feeds: Array<any>)=> {
+                                                                        
                                                                         
                                                                         let feedData = actionAndState.feed;
                                                                         feedData['pageNumber'] = actionAndState.payload.pageNumber;

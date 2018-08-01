@@ -25846,3 +25846,11 @@ page-user .content-wrapper .scroll-content {
   -ms-flex-align: center;
   align-items: center;
 }
+
+page-user .content .scroll-content .item {
+  margin-top: 75px;
+}
+
+page-user .content .scroll-content .label {
+  display: none;
+}

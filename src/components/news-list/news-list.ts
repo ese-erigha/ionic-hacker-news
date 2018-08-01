@@ -18,10 +18,10 @@ import "rxjs/add/operator/takeUntil";
 export class NewsListComponent implements OnInit, OnDestroy {
   @Input("feedType") feedType: string = null;
   feeds: Array<Feed> = [];
-  pageNumber: number = 1;
+  pageNumber: number = 0;
+  totalPages: number = 100; //dummy value
   infiniteScroll: any = null;
   initial: boolean = false;
-  spinner: any = null;
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
@@ -34,9 +34,6 @@ export class NewsListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-
-
-    this.spinner = this.loadingController.create({content: "Loading news",spinner: "crescent"});
 
     this.store
       .select(state => state.newsState)
@@ -52,17 +49,18 @@ export class NewsListComponent implements OnInit, OnDestroy {
         //error.text
       });
 
+
     if (this.feedType) {
       this.initial = true;
       this.feeds = [];
-      this.triggerFetch(this.feedType, 1);
+      this.pageNumber = 1;
+      this.triggerFetch(this.feedType, this.pageNumber);
     }
   }
 
   displayData(newsState: NewsState) {
-
-    console.log(newsState);
-    if (!newsState.loading) {
+    
+    if (newsState && !newsState.loading) {
 
       if(this.initial){
         this.initial = false;
@@ -70,11 +68,15 @@ export class NewsListComponent implements OnInit, OnDestroy {
       }
 
       this.feeds = [...this.feeds, ...newsState.feeds];
+
+      let feed = newsState[this.feedType];
+      this.pageNumber = feed.pageNumber;
+      this.totalPages = feed.totalPages;
+
+
       if (this.infiniteScroll) {
         this.infiniteScroll.complete();
-        let feed = newsState[this.feedType];
-
-        if (this.pageNumber === feed.totalPages) {
+        if (this.pageNumber === this.totalPages) {
           this.infiniteScroll.enable(false);
         }
       }
@@ -87,10 +89,7 @@ export class NewsListComponent implements OnInit, OnDestroy {
   }
 
   triggerFetch(feedType: string, pageNumber: number, infiniteScroll = null) {
-
-    if(this.initial){
-      //this.spinner.present();
-    }
+    
     this.infiniteScroll = infiniteScroll;
     this.store.dispatch({
       type: newsActions.LOAD_FEEDS,
@@ -104,7 +103,6 @@ export class NewsListComponent implements OnInit, OnDestroy {
   viewUser(feed:Feed,event){
 
     this.handleDefaults(event);
-    console.log(feed);
     this.appCtrl.getRootNav().push('UserPage',{id: feed.by});
   }
 
@@ -123,13 +121,14 @@ export class NewsListComponent implements OnInit, OnDestroy {
 
     this.handleDefaults(event);
     if(feed.url){
-      console.log(feed.url);
       const browser = this.iab.create(feed.url,'_self',{location:'no'});
 
     }else{
 
+      if(this.feedType === 'job'){
+        return false;
+      }
       this.appCtrl.getRootNav().push('FeedPage',{feed: feed});
-
     }
   }
 

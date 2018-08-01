@@ -58,19 +58,19 @@ webpackEmptyAsyncContext.id = 144;
 var map = {
 	"../pages/best/best.module": [
 		423,
-		3
+		5
 	],
 	"../pages/feed/feed.module": [
 		424,
-		5
+		6
 	],
 	"../pages/jobs/jobs.module": [
 		425,
-		7
+		4
 	],
 	"../pages/new/new.module": [
 		426,
-		2
+		3
 	],
 	"../pages/news/news.module": [
 		427,
@@ -78,15 +78,15 @@ var map = {
 	],
 	"../pages/top/top.module": [
 		428,
-		1
+		2
 	],
 	"../pages/user/user.module": [
 		429,
-		4
+		1
 	],
 	"../pages/users/users.module": [
 		430,
-		6
+		7
 	]
 };
 function webpackAsyncContext(req) {
@@ -105,7 +105,7 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 261:
+/***/ 260:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -372,8 +372,7 @@ var MyApp = /** @class */ (function () {
         this.rootPage = 'NewsPage';
         this.pages = [
             { title: 'News', pageName: 'NewsPage', icon: 'logo-hackernews' },
-            { title: 'Jobs', pageName: 'JobsPage', icon: 'briefcase' },
-            { title: 'Users', pageName: 'UsersPage', icon: 'contacts' }
+            { title: 'Jobs', pageName: 'JobsPage', icon: 'briefcase' }
         ];
         this.initializeApp();
     }
@@ -387,9 +386,6 @@ var MyApp = /** @class */ (function () {
         });
     };
     MyApp.prototype.openPage = function (page) {
-        // Reset the content nav to have just this page
-        // we wouldn't want the back button to show in this scenario
-        //this.nav.setRoot(page.component);
         this.nav.setRoot(page.pageName);
     };
     MyApp.prototype.isActive = function (page) {
@@ -435,9 +431,9 @@ var reducers = {};
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_retry__ = __webpack_require__(419);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_retry___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_retry__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__ = __webpack_require__(258);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(259);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_services_notification_service__ = __webpack_require__(131);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -533,7 +529,7 @@ var ApiInterceptor = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_helper_service__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_api_service__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_api_service__ = __webpack_require__(260);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_notification_service__ = __webpack_require__(131);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

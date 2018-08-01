@@ -25,7 +25,6 @@ export class UserPage {
     public store: Store<State>,
     public notificationService: NotificationService,
     public navCtrl: NavController) {
-
       this.id = this.navParams.get('id');
   }
 
@@ -44,7 +43,6 @@ export class UserPage {
         //error.title
         //error.text
       });
-
       if(this.id){
         this.user = null;
         this.loading = true; 
@@ -59,6 +57,7 @@ export class UserPage {
 
   fetchUser(userId: string) {
     
+    console.log("fetching User: "+userId);
     this.store.dispatch({
       type: userActions.LOAD_USER,
       payload: <userActions.userQuery>{
@@ -69,7 +68,7 @@ export class UserPage {
 
 
   displayData(userState: UserState){
-    //console.log(newsState);
+    console.log(userState);
     if (userState && !userState.loading) {
 
       this.loading = false;

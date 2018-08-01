@@ -1,14 +1,15 @@
 webpackJsonp([5],{
 
-/***/ 424:
+/***/ 423:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FeedPageModule", function() { return FeedPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feed__ = __webpack_require__(436);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BestPageModule", function() { return BestPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_news_list_news_list_module__ = __webpack_require__(432);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__best__ = __webpack_require__(442);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +19,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FeedPageModule = /** @class */ (function () {
-    function FeedPageModule() {
+
+var BestPageModule = /** @class */ (function () {
+    function BestPageModule() {
     }
-    FeedPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+    BestPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__feed__["a" /* FeedPage */],
+                __WEBPACK_IMPORTED_MODULE_3__best__["a" /* BestPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__feed__["a" /* FeedPage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__best__["a" /* BestPage */]),
+                __WEBPACK_IMPORTED_MODULE_0__components_news_list_news_list_module__["a" /* NewsListModule */]
             ],
         })
-    ], FeedPageModule);
-    return FeedPageModule;
+    ], BestPageModule);
+    return BestPageModule;
 }());
 
-//# sourceMappingURL=feed.module.js.map
+//# sourceMappingURL=best.module.js.map
 
 /***/ }),
 
@@ -134,20 +137,61 @@ var LoadItemErrorAction = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 436:
+/***/ 432:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewsListModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngrx_store__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_news_news_actions__ = __webpack_require__(431);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_services_notification_service__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Subject__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_takeUntil__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_takeUntil__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__news_list__ = __webpack_require__(433);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var NewsListModule = /** @class */ (function () {
+    function NewsListModule() {
+    }
+    NewsListModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__news_list__["a" /* NewsListComponent */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicModule */],
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_2__news_list__["a" /* NewsListComponent */],
+            ]
+        })
+    ], NewsListModule);
+    return NewsListModule;
+}());
+
+//# sourceMappingURL=news-list.module.js.map
+
+/***/ }),
+
+/***/ 433:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewsListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngrx_store__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_news_news_actions__ = __webpack_require__(431);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Subject__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_takeUntil__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_takeUntil__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -164,21 +208,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var FeedPage = /** @class */ (function () {
-    function FeedPage(navParams, store, notificationService, navCtrl) {
-        this.navParams = navParams;
+
+var NewsListComponent = /** @class */ (function () {
+    function NewsListComponent(store, notificationService, loadingController, iab, navCtrl, appCtrl) {
         this.store = store;
         this.notificationService = notificationService;
+        this.loadingController = loadingController;
+        this.iab = iab;
         this.navCtrl = navCtrl;
-        this.id = null;
-        this.loading = false;
-        this.spinner = null;
-        this.destroy$ = new __WEBPACK_IMPORTED_MODULE_5_rxjs_Subject__["Subject"]();
-        this.feed = null;
-        this.navFeed = null;
-        this.navFeed = this.navParams.get('feed');
+        this.appCtrl = appCtrl;
+        this.feedType = null;
+        this.feeds = [];
+        this.pageNumber = 0;
+        this.totalPages = 100; //dummy value
+        this.infiniteScroll = null;
+        this.initial = false;
+        this.destroy$ = new __WEBPACK_IMPORTED_MODULE_6_rxjs_Subject__["Subject"]();
     }
-    FeedPage.prototype.ionViewWillEnter = function () {
+    NewsListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.store
             .select(function (state) { return state.newsState; })
@@ -192,48 +239,130 @@ var FeedPage = /** @class */ (function () {
             //error.title
             //error.text
         });
-        if (this.navFeed && this.navFeed.id) {
-            this.feed = null;
-            this.loading = true;
-            this.triggerFetch(this.navFeed.id);
+        if (this.feedType) {
+            this.initial = true;
+            this.feeds = [];
+            this.pageNumber = 1;
+            this.triggerFetch(this.feedType, this.pageNumber);
         }
     };
-    FeedPage.prototype.displayData = function (newsState) {
-        //console.log(newsState);
+    NewsListComponent.prototype.displayData = function (newsState) {
         if (newsState && !newsState.loading) {
-            this.loading = false;
-            console.log(newsState.story);
-            this.feed = newsState.story;
+            if (this.initial) {
+                this.initial = false;
+                //this.spinner.dismiss();
+            }
+            this.feeds = this.feeds.concat(newsState.feeds);
+            var feed = newsState[this.feedType];
+            this.pageNumber = feed.pageNumber;
+            this.totalPages = feed.totalPages;
+            if (this.infiniteScroll) {
+                this.infiniteScroll.complete();
+                if (this.pageNumber === this.totalPages) {
+                    this.infiniteScroll.enable(false);
+                }
+            }
         }
     };
-    FeedPage.prototype.triggerFetch = function (itemId) {
+    NewsListComponent.prototype.loadMore = function (infiniteScroll) {
+        ++this.pageNumber;
+        this.triggerFetch(this.feedType, this.pageNumber, infiniteScroll);
+    };
+    NewsListComponent.prototype.triggerFetch = function (feedType, pageNumber, infiniteScroll) {
+        if (infiniteScroll === void 0) { infiniteScroll = null; }
+        this.infiniteScroll = infiniteScroll;
         this.store.dispatch({
-            type: __WEBPACK_IMPORTED_MODULE_3__pages_news_news_actions__["e" /* LOAD_ITEM */],
+            type: __WEBPACK_IMPORTED_MODULE_4__pages_news_news_actions__["a" /* LOAD_FEEDS */],
             payload: {
-                id: itemId
+                type: feedType,
+                pageNumber: pageNumber
             }
         });
     };
-    FeedPage.prototype.viewUser = function (userId) {
+    NewsListComponent.prototype.viewUser = function (feed, event) {
+        this.handleDefaults(event);
+        this.appCtrl.getRootNav().push('UserPage', { id: feed.by });
     };
-    FeedPage.prototype.ionViewWillLeave = function () {
-        this.feed = null;
+    NewsListComponent.prototype.handleDefaults = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+    };
+    NewsListComponent.prototype.viewComments = function (feed, event) {
+        this.handleDefaults(event);
+        this.appCtrl.getRootNav().push('FeedPage', { feed: feed });
+    };
+    NewsListComponent.prototype.viewFeed = function (feed, event) {
+        this.handleDefaults(event);
+        if (feed.url) {
+            var browser = this.iab.create(feed.url, '_self', { location: 'no' });
+        }
+        else {
+            if (this.feedType === 'job') {
+                return false;
+            }
+            this.appCtrl.getRootNav().push('FeedPage', { feed: feed });
+        }
+    };
+    NewsListComponent.prototype.ngOnDestroy = function () {
         this.destroy$.next(true);
         this.destroy$.unsubscribe();
     };
-    FeedPage = __decorate([
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])("feedType"),
+        __metadata("design:type", String)
+    ], NewsListComponent.prototype, "feedType", void 0);
+    NewsListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-feed',template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/feed/feed.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-item>\n      <ion-avatar item-start>\n        <img src="https://cdn.pixabay.com/photo/2016/03/31/19/10/avatar-1294773_1280.png">\n      </ion-avatar>\n      <h5>{{navFeed?.by}}</h5>\n      <p>\n        <span>\n            {{navFeed?.score}} points\n        </span>\n        <span>\n            | <span>{{navFeed?.kids?.length || 0}} comments</span>\n        </span>\n      </p>\n    </ion-item>\n  </ion-navbar>\n</ion-header>\n\n<ion-content *ngIf="!loading">\n  <ion-item class="feed">\n    <div item-content flex-start class="feed-header-wrapper">\n      <h3>{{feed?.title}}</h3>\n      <p>\n        {{ feed?.score }} points by\n\n        <a (click)="viewUser(feed.by)">{{ feed?.by }}</a>\n\n        | {{ feed?.kids?.length }} comments\n      </p>\n    </div>\n  </ion-item>\n\n  <ion-list>\n    <ion-grid >\n      <ion-row>\n        <ion-col col-12>\n          <div *ngFor="let comment of feed?.kids" item-content>\n            <div *ngIf="comment.text" class="comment tile">\n              <div class="tile-icon">\n                <i class="icon icon-more-horiz"></i>\n              </div>\n              <div class="tile-content">\n                <p class="tile-title text-gray">\n                  <a (click)="viewUser(comment.by)">{{ comment.by }}</a>\n                  {{ comment?.time | date: \'short\' }}\n                </p>\n                <div class="tile-subtitle" [innerHtml]="comment?.text"></div>\n              </div>\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-list>\n\n</ion-content>\n\n<ion-content class="content-wrapper" *ngIf="loading">\n  <ion-spinner name="dots"></ion-spinner>\n</ion-content>'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/feed/feed.html"*/,
+            selector: "news-list",template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/'<ion-content *ngIf="!initial">\n    <ion-list>\n            <ion-item class="feed" *ngFor="let feed of feeds; let i = index;">\n                <div class="feed-index" item-content>{{ i + 1}}</div>\n                <div class="feed-metadata" item-content>\n                    <h2 class="feed-header">\n                        <a class="feed-header-title" (click)="viewFeed(feed,$event)">{{ feed?.title }}</a>\n                    </h2>\n                    <div item-content>\n                        <span>By </span>\n                        <a (click)="viewUser(feed,$event)">{{ feed?.by }}</a>\n                        <a *ngIf="feedType !== \'job\'" (click)="viewComments(feed,$event)"> | {{feed?.kids?.length || 0}} comments</a>\n                        <span> | {{feed?.score || 0}} points</span>\n                    </div>\n                </div>\n            </ion-item>\n    </ion-list>\n\n    <ion-infinite-scroll *ngIf="pageNumber !== totalPages" (ionInfinite)="loadMore($event)">\n        <ion-infinite-scroll-content loadingSpinner="dots">\n        </ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n\n<ion-content class="content-wrapper" *ngIf="initial">\n    <ion-spinner name="dots"></ion-spinner>\n</ion-content>'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */],
-            __WEBPACK_IMPORTED_MODULE_4__shared_services_notification_service__["a" /* NotificationService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
-    ], FeedPage);
-    return FeedPage;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */]) === "function" && _f || Object])
+    ], NewsListComponent);
+    return NewsListComponent;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
-//# sourceMappingURL=feed.js.map
+//# sourceMappingURL=news-list.js.map
+
+/***/ }),
+
+/***/ 442:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BestPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(128);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var BestPage = /** @class */ (function () {
+    function BestPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.feedType = "best";
+    }
+    BestPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad BestPage');
+    };
+    BestPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-best',template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/best/best.html"*/'<ion-content padding>\n    <news-list [feedType]="feedType"></news-list>\n</ion-content>\n'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/best/best.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    ], BestPage);
+    return BestPage;
+}());
+
+//# sourceMappingURL=best.js.map
 
 /***/ })
 

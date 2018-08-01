@@ -21,8 +21,7 @@ export class MyApp {
   
   pages: PageInterface[] = [
     { title: 'News', pageName: 'NewsPage', icon: 'logo-hackernews' },
-    { title: 'Jobs', pageName: 'JobsPage', icon:'briefcase' },
-    { title: 'Users', pageName: 'UsersPage', icon: 'contacts' }
+    { title: 'Jobs', pageName: 'JobsPage', icon:'briefcase' }
   ];
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
@@ -39,9 +38,6 @@ export class MyApp {
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    //this.nav.setRoot(page.component);
     this.nav.setRoot(page.pageName);
   }
 
