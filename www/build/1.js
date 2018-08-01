@@ -251,7 +251,7 @@ var NewsListComponent = /** @class */ (function () {
         if (!newsState.loading) {
             if (this.initial) {
                 this.initial = false;
-                this.spinner.dismiss();
+                //this.spinner.dismiss();
             }
             this.feeds = this.feeds.concat(newsState.feeds);
             if (this.infiniteScroll) {
@@ -270,7 +270,7 @@ var NewsListComponent = /** @class */ (function () {
     NewsListComponent.prototype.triggerFetch = function (feedType, pageNumber, infiniteScroll) {
         if (infiniteScroll === void 0) { infiniteScroll = null; }
         if (this.initial) {
-            this.spinner.present();
+            //this.spinner.present();
         }
         this.infiniteScroll = infiniteScroll;
         this.store.dispatch({
@@ -315,16 +315,12 @@ var NewsListComponent = /** @class */ (function () {
     ], NewsListComponent.prototype, "feedType", void 0);
     NewsListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "news-list",template:/*ion-inline-start:"C:\dev\ionic-hacker-news\src\components\news-list\news-list.html"*/'<ion-content>\n\n    <ion-list>\n\n        <ion-item class="feed" *ngFor="let feed of feeds; let i = index;">\n\n            <div class="feed-index" item-content>{{ i + 1}}</div>\n\n            <div class="feed-metadata" item-content>\n\n                <h2 class="feed-header">\n\n                    <a class="feed-header-title" (click)="viewFeed(feed,$event)">{{ feed?.title }}</a>\n\n                </h2>\n\n                <div item-content>\n\n                    <span>Posted by</span>\n\n                    <a (click)="viewUser(feed,$event)">{{ feed?.by }}</a> |\n\n                    <a (click)="viewComments(feed,$event)">{{feed?.kids?.length || 0}} comments</a>\n\n                </div>\n\n            </div>\n\n        </ion-item>\n\n    </ion-list>\n\n    <ion-infinite-scroll (ionInfinite)="loadMore($event)">\n\n        <ion-infinite-scroll-content loadingSpinner="crescent">\n\n        </ion-infinite-scroll-content>\n\n    </ion-infinite-scroll>\n\n</ion-content>'/*ion-inline-end:"C:\dev\ionic-hacker-news\src\components\news-list\news-list.html"*/
+            selector: "news-list",template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/'<ion-content *ngIf="!initial">\n    <ion-list>\n        <ion-item class="feed" *ngFor="let feed of feeds; let i = index;">\n            <div class="feed-index" item-content>{{ i + 1}}</div>\n            <div class="feed-metadata" item-content>\n                <h2 class="feed-header">\n                    <a class="feed-header-title" (click)="viewFeed(feed,$event)">{{ feed?.title }}</a>\n                </h2>\n                <div item-content>\n                    <span>Posted by</span>\n                    <a (click)="viewUser(feed,$event)">{{ feed?.by }}</a> |\n                    <a (click)="viewComments(feed,$event)">{{feed?.kids?.length || 0}} comments</a>\n                </div>\n            </div>\n        </ion-item>\n    </ion-list>\n    <ion-infinite-scroll (ionInfinite)="loadMore($event)">\n        <ion-infinite-scroll-content loadingSpinner="dots">\n        </ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n\n<ion-content class="content-wrapper" *ngIf="initial">\n    <ion-spinner name="dots"></ion-spinner>\n</ion-content>'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */],
-            __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__["a" /* NotificationService */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */]) === "function" && _f || Object])
     ], NewsListComponent);
     return NewsListComponent;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=news-list.js.map
@@ -360,7 +356,7 @@ var TopPage = /** @class */ (function () {
     };
     TopPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-top',template:/*ion-inline-start:"C:\dev\ionic-hacker-news\src\pages\top\top.html"*/'<ion-content no-padding>\n\n    <news-list [feedType]="feedType"></news-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\dev\ionic-hacker-news\src\pages\top\top.html"*/,
+            selector: 'page-top',template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/top/top.html"*/'<ion-content no-padding>\n    <news-list [feedType]="feedType"></news-list>\n</ion-content>\n'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/top/top.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], TopPage);

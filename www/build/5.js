@@ -66,7 +66,7 @@ var UsersPage = /** @class */ (function () {
     };
     UsersPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-users',template:/*ion-inline-start:"C:\dev\ionic-hacker-news\src\pages\users\users.html"*/'<ion-header>\n\n    <ion-navbar class="navbar">\n\n        <ion-buttons left>\n\n            <button ion-button menuToggle>\n\n                <ion-icon name="menu"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-title>Users</ion-title>\n\n    </ion-navbar>\n\n  </ion-header>\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\dev\ionic-hacker-news\src\pages\users\users.html"*/,
+            selector: 'page-users',template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/users/users.html"*/'<ion-header>\n    <ion-navbar class="navbar">\n        <ion-buttons left>\n            <button ion-button menuToggle>\n                <ion-icon name="menu"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-title>Users</ion-title>\n    </ion-navbar>\n  </ion-header>\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/users/users.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], UsersPage);

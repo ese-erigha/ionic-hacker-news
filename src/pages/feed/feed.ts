@@ -17,7 +17,7 @@ import "rxjs/add/operator/takeUntil";
 export class FeedPage {
 
   id: number = null;
-  initial: boolean = false;
+  loading: boolean = false;
   spinner: any = null;
   destroy$: Subject<boolean> = new Subject<boolean>();
   feed: any = null;
@@ -32,8 +32,6 @@ export class FeedPage {
   }
 
   ionViewWillEnter(){
-
-    this.spinner = this.loadingController.create({content: "Loading news",spinner: "crescent"});
 
     this.store
       .select(state => state.newsState)
@@ -51,7 +49,7 @@ export class FeedPage {
 
 
       if(this.id){
-        this.initial = true;
+        this.feed = null; 
         this.triggerFetch(this.id);
       }
     
@@ -60,22 +58,17 @@ export class FeedPage {
 
   displayData(newsState: NewsState){
     console.log(newsState);
-    if (!newsState.loading) {
+    if (newsState && !newsState.loading) {
 
-      if(this.initial){
-        this.initial = false;
-        this.spinner.dismiss();
+      if(this.loading){
+        this.loading = false;
       }
       this.feed = newsState.story;
     }
   }
 
   triggerFetch(itemId: number) {
-
-    if(this.initial){
-      this.spinner.present();
-    }
-
+    this.loading = true;
     this.store.dispatch({
       type: newsActions.LOAD_ITEM,
       payload: <newsActions.itemQuery>{

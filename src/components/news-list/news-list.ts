@@ -66,7 +66,7 @@ export class NewsListComponent implements OnInit, OnDestroy {
 
       if(this.initial){
         this.initial = false;
-        this.spinner.dismiss();
+        //this.spinner.dismiss();
       }
 
       this.feeds = [...this.feeds, ...newsState.feeds];
@@ -89,7 +89,7 @@ export class NewsListComponent implements OnInit, OnDestroy {
   triggerFetch(feedType: string, pageNumber: number, infiniteScroll = null) {
 
     if(this.initial){
-      this.spinner.present();
+      //this.spinner.present();
     }
     this.infiniteScroll = infiniteScroll;
     this.store.dispatch({

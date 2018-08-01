@@ -25678,6 +25678,21 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+news-list .content-wrapper .scroll-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 news-list .scroll-content .card {
   margin-left: 0px !important;
   margin-right: 0px !important;
@@ -25708,12 +25723,53 @@ page-best .scroll-content {
   margin-bottom: 20px !important;
 }
 
-page-feed .label-md {
+page-best .scroll-content .list {
+  margin-bottom: 5px !important;
+}
+
+page-best .scroll-content .infinite-loading {
+  margin-bottom: 5px !important;
+}
+
+page-feed .content-wrapper .scroll-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+page-feed .content .scroll-content .feed {
+  margin-top: 70px;
+}
+
+page-feed .content .scroll-content .label {
   display: none;
 }
 
-page-feed .grid {
+page-feed .content .scroll-content .grid {
+  border-bottom: 0px;
+}
+
+page-feed .content .scroll-content .grid .comment {
+  padding: 10px;
+  padding-bottom: 5px;
   border-bottom: 1px solid gray;
+}
+
+page-feed .content .scroll-content .grid .comment .tile .tile-subtitle {
+  text-align: justify;
+}
+
+page-feed .content .scroll-content .grid .comment .tile .tile-subtitle p {
+  margin-bottom: 0px;
 }
 
 page-new .scroll-content {
@@ -25721,7 +25777,23 @@ page-new .scroll-content {
   margin-bottom: 20px !important;
 }
 
+page-new .scroll-content .list {
+  margin-bottom: 5px !important;
+}
+
+page-new .scroll-content .infinite-loading {
+  margin-bottom: 5px !important;
+}
+
 page-top .scroll-content {
   padding: 0px !important;
   margin-bottom: 20px !important;
+}
+
+page-top .scroll-content .list {
+  margin-bottom: 5px !important;
+}
+
+page-top .scroll-content .infinite-loading {
+  margin-bottom: 5px !important;
 }

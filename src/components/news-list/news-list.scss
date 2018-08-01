@@ -1,5 +1,14 @@
 news-list {
 
+    .content-wrapper{
+
+        .scroll-content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
     .scroll-content{
         .card{
             margin-left: 0px!important;

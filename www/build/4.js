@@ -172,7 +172,7 @@ var FeedPage = /** @class */ (function () {
         this.loadingController = loadingController;
         this.navCtrl = navCtrl;
         this.id = null;
-        this.initial = false;
+        this.loading = false;
         this.spinner = null;
         this.destroy$ = new __WEBPACK_IMPORTED_MODULE_5_rxjs_Subject__["Subject"]();
         this.feed = null;
@@ -180,7 +180,6 @@ var FeedPage = /** @class */ (function () {
     }
     FeedPage.prototype.ionViewWillEnter = function () {
         var _this = this;
-        this.spinner = this.loadingController.create({ content: "Loading news", spinner: "crescent" });
         this.store
             .select(function (state) { return state.newsState; })
             .takeUntil(this.destroy$)
@@ -194,24 +193,21 @@ var FeedPage = /** @class */ (function () {
             //error.text
         });
         if (this.id) {
-            this.initial = true;
+            this.feed = null;
             this.triggerFetch(this.id);
         }
     };
     FeedPage.prototype.displayData = function (newsState) {
         console.log(newsState);
-        if (!newsState.loading) {
-            if (this.initial) {
-                this.initial = false;
-                this.spinner.dismiss();
+        if (newsState && !newsState.loading) {
+            if (this.loading) {
+                this.loading = false;
             }
             this.feed = newsState.story;
         }
     };
     FeedPage.prototype.triggerFetch = function (itemId) {
-        if (this.initial) {
-            this.spinner.present();
-        }
+        this.loading = true;
         this.store.dispatch({
             type: __WEBPACK_IMPORTED_MODULE_3__pages_news_news_actions__["e" /* LOAD_ITEM */],
             payload: {
@@ -226,15 +222,12 @@ var FeedPage = /** @class */ (function () {
     };
     FeedPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-feed',template:/*ion-inline-start:"C:\dev\ionic-hacker-news\src\pages\feed\feed.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>feed</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-item class="feed">\n\n    <div item-content flex-start class="feed-header-wrapper">\n\n      <h3>{{feed?.title}}</h3>\n\n      <p>\n\n        {{ feed?.score }} points by\n\n\n\n        <a (click)="viewUser(feed.by)">{{ feed?.by }}</a>\n\n\n\n        | {{ feed?.kids?.length }} comments\n\n      </p>\n\n    </div>\n\n  </ion-item>\n\n\n\n  <ion-list>\n\n    <ion-grid *ngFor="let comment of feed?.kids">\n\n      <ion-row>\n\n        <ion-col col-12>\n\n          <div item-content class="comment">\n\n            <div class="tile">\n\n              <div class="tile-icon">\n\n                <i class="icon icon-more-horiz"></i>\n\n              </div>\n\n              <div class="tile-content">\n\n                <p class="tile-title text-gray">\n\n                  <a (click)="viewUser(comment.by)">{{ comment.by }}</a>\n\n                  {{ comment?.time | date: \'short\' }}</p>\n\n                <div class="tile-subtitle" [innerHtml]="comment?.text"></div>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\dev\ionic-hacker-news\src\pages\feed\feed.html"*/,
+            selector: 'page-feed',template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/feed/feed.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>feed</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content *ngIf="!loading">\n  <ion-item class="feed">\n    <div item-content flex-start class="feed-header-wrapper">\n      <h3>{{feed?.title}}</h3>\n      <p>\n        {{ feed?.score }} points by\n\n        <a (click)="viewUser(feed.by)">{{ feed?.by }}</a>\n\n        | {{ feed?.kids?.length }} comments\n      </p>\n    </div>\n  </ion-item>\n\n  <ion-list>\n    <ion-grid >\n      <ion-row>\n        <ion-col col-12>\n          <div *ngFor="let comment of feed?.kids" item-content class="comment">\n            <div *ngIf="comment.text" class="tile">\n              <div class="tile-icon">\n                <i class="icon icon-more-horiz"></i>\n              </div>\n              <div class="tile-content">\n                <p class="tile-title text-gray">\n                  <a (click)="viewUser(comment.by)">{{ comment.by }}</a>\n                  {{ comment?.time | date: \'short\' }}\n                </p>\n                <div class="tile-subtitle" [innerHtml]="comment?.text"></div>\n              </div>\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-list>\n\n</ion-content>\n\n<<ion-content class="content-wrapper" *ngIf="loading">\n  <ion-spinner name="dots"></ion-spinner>\n</ion-content>'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/feed/feed.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */],
-            __WEBPACK_IMPORTED_MODULE_4__shared_services_notification_service__["a" /* NotificationService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared_services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared_services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _e || Object])
     ], FeedPage);
     return FeedPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=feed.js.map

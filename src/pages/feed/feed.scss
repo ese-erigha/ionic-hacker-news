@@ -1,11 +1,47 @@
 page-feed {
 
-    .label-md{
-        display: none;
+    .content-wrapper{
+
+        .scroll-content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
-    .grid{
-        border-bottom: 1px solid gray;
-    }
+    .content{
 
+        .scroll-content{
+
+            .feed{
+                margin-top: 70px;
+            }
+
+            .label{
+                display: none;
+            }
+        
+            .grid{
+                border-bottom: 0px;
+
+                .comment{
+                    padding: 10px;
+                    padding-bottom: 5px;
+                    border-bottom: 1px solid gray;
+                    
+                    .tile{
+
+
+                        .tile-subtitle{
+                            text-align: justify;
+
+                            p{
+                                margin-bottom: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
