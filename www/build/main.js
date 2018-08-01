@@ -1,4 +1,4 @@
-webpackJsonp([7],{
+webpackJsonp([8],{
 
 /***/ 131:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -62,11 +62,11 @@ var map = {
 	],
 	"../pages/feed/feed.module": [
 		424,
-		4
+		5
 	],
 	"../pages/jobs/jobs.module": [
 		425,
-		6
+		7
 	],
 	"../pages/new/new.module": [
 		426,
@@ -80,9 +80,13 @@ var map = {
 		428,
 		1
 	],
-	"../pages/users/users.module": [
+	"../pages/user/user.module": [
 		429,
-		5
+		4
+	],
+	"../pages/users/users.module": [
+		430,
+		6
 	]
 };
 function webpackAsyncContext(req) {
@@ -291,6 +295,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/new/new.module#NewPageModule', name: 'NewPage', segment: 'new', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/news/news.module#NewsPageModule', name: 'NewsPage', segment: 'news', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/top/top.module#TopPageModule', name: 'TopPage', segment: 'top', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/user/user.module#UserPageModule', name: 'UserPage', segment: 'user', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/users/users.module#UsersPageModule', name: 'UsersPage', segment: 'users', priority: 'low', defaultHistory: [] }
                     ]
                 }),

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+      <ion-item>
+          <ion-avatar item-start>
+            <img src="https://cdn.pixabay.com/photo/2016/03/31/19/10/avatar-1294773_1280.png">
+          </ion-avatar>
+          <h5>{{id}}</h5>
+        </ion-item>
+  </ion-navbar>
+</ion-header>
+
+<ion-content *ngIf="!loading" padding>
+   <ion-item>
+      <div class="user" item-content>
+          <h2>{{ user?.id }}</h2>
+          <ul>
+              <li *ngIf="user?.created"> Joined {{ user?.created | date: 'short' }}</li>
+              <li *ngIf="user?.karma"> Karma -  {{ user?.karma || 0 }} <span></span></li>
+          </ul>
+      </div>
+   </ion-item>
+</ion-content>
+
+<ion-content class="content-wrapper" *ngIf="loading">
+    <ion-spinner name="dots"></ion-spinner>
+</ion-content>

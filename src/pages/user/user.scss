@@ -1,0 +1,35 @@
+page-user {
+
+    .toolbar{
+
+        padding-bottom: 5px;
+
+        .toolbar-content{
+            
+            .item{
+                background-color: #f8f8f8!important;
+
+                .item-inner{
+
+                    border-bottom: 0px;
+
+                    .label{
+                        margin-bottom: 5px;
+                        margin-top: -5px;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .content-wrapper{
+
+        .scroll-content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+}

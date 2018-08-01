@@ -103,33 +103,32 @@ export class NewsListComponent implements OnInit, OnDestroy {
 
   viewUser(feed:Feed,event){
 
+    this.handleDefaults(event);
+    console.log(feed);
+    this.appCtrl.getRootNav().push('UserPage',{id: feed.by});
+  }
+
+  handleDefaults(event){
     event.preventDefault();
     event.stopPropagation();
     event.stopImmediatePropagation();
-
-    console.log(feed);
-
   }
 
   viewComments(feed:Feed,event){
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-    this.appCtrl.getRootNav().push('FeedPage',{id: feed.id});
+    this.handleDefaults(event);
+    this.appCtrl.getRootNav().push('FeedPage',{feed: feed});
   }
 
   viewFeed(feed:Feed,event){
 
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
+    this.handleDefaults(event);
     if(feed.url){
       console.log(feed.url);
       const browser = this.iab.create(feed.url,'_self',{location:'no'});
 
     }else{
 
-      this.appCtrl.getRootNav().push('FeedPage',{id: feed.id});
+      this.appCtrl.getRootNav().push('FeedPage',{feed: feed});
 
     }
   }

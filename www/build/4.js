@@ -1,14 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 424:
+/***/ 429:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FeedPageModule", function() { return FeedPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserPageModule", function() { return UserPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feed__ = __webpack_require__(435);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user__ = __webpack_require__(449);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,131 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FeedPageModule = /** @class */ (function () {
-    function FeedPageModule() {
+var UserPageModule = /** @class */ (function () {
+    function UserPageModule() {
     }
-    FeedPageModule = __decorate([
+    UserPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__feed__["a" /* FeedPage */],
+                __WEBPACK_IMPORTED_MODULE_2__user__["a" /* UserPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__feed__["a" /* FeedPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__user__["a" /* UserPage */]),
             ],
         })
-    ], FeedPageModule);
-    return FeedPageModule;
+    ], UserPageModule);
+    return UserPageModule;
 }());
 
-//# sourceMappingURL=feed.module.js.map
+//# sourceMappingURL=user.module.js.map
 
 /***/ }),
 
-/***/ 430:
+/***/ 449:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LOAD_FEEDS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return LOAD_FEEDS_SUCCESS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return LOAD_FEEDS_PENDING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LOAD_FEEDS_ERROR; });
-/* unused harmony export LoadFeedsAction */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return LoadFeedsSuccessAction; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return LoadFeedsPendingAction; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return LoadFeedsErrorAction; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return LOAD_ITEM; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return LOAD_ITEM_SUCCESS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return LOAD_ITEM_PENDING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return LOAD_ITEM_ERROR; });
-/* unused harmony export LoadItemAction */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return LoadItemSuccessAction; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return LoadItemPendingAction; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return LoadItemErrorAction; });
-var LOAD_FEEDS = '[Load] Feeds';
-var LOAD_FEEDS_SUCCESS = '[Load] Feeds Success';
-var LOAD_FEEDS_PENDING = '[Load] Feeds Pending';
-var LOAD_FEEDS_ERROR = '[Load] Feeds Error';
-var LoadFeedsAction = /** @class */ (function () {
-    function LoadFeedsAction(payload) {
-        this.payload = payload;
-        this.type = LOAD_FEEDS;
-    }
-    return LoadFeedsAction;
-}());
-
-var LoadFeedsSuccessAction = /** @class */ (function () {
-    function LoadFeedsSuccessAction(payload) {
-        this.payload = payload;
-        this.type = LOAD_FEEDS_SUCCESS;
-    }
-    return LoadFeedsSuccessAction;
-}());
-
-var LoadFeedsPendingAction = /** @class */ (function () {
-    function LoadFeedsPendingAction(payload) {
-        this.payload = payload;
-        this.type = LOAD_FEEDS_PENDING;
-    }
-    return LoadFeedsPendingAction;
-}());
-
-var LoadFeedsErrorAction = /** @class */ (function () {
-    function LoadFeedsErrorAction(payload) {
-        this.payload = payload;
-        this.type = LOAD_FEEDS_ERROR;
-    }
-    return LoadFeedsErrorAction;
-}());
-
-var LOAD_ITEM = '[Load] Item';
-var LOAD_ITEM_SUCCESS = '[Load] Item Success';
-var LOAD_ITEM_PENDING = '[Load] Item Pending';
-var LOAD_ITEM_ERROR = '[Load] Item Error';
-var LoadItemAction = /** @class */ (function () {
-    function LoadItemAction(payload) {
-        this.payload = payload;
-        this.type = LOAD_ITEM;
-    }
-    return LoadItemAction;
-}());
-
-var LoadItemSuccessAction = /** @class */ (function () {
-    function LoadItemSuccessAction(payload) {
-        this.payload = payload;
-        this.type = LOAD_ITEM_SUCCESS;
-    }
-    return LoadItemSuccessAction;
-}());
-
-var LoadItemPendingAction = /** @class */ (function () {
-    function LoadItemPendingAction(payload) {
-        this.payload = payload;
-        this.type = LOAD_ITEM_PENDING;
-    }
-    return LoadItemPendingAction;
-}());
-
-var LoadItemErrorAction = /** @class */ (function () {
-    function LoadItemErrorAction(payload) {
-        this.payload = payload;
-        this.type = LOAD_ITEM_ERROR;
-    }
-    return LoadItemErrorAction;
-}());
-
-//# sourceMappingURL=news.actions.js.map
-
-/***/ }),
-
-/***/ 435:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngrx_store__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_news_news_actions__ = __webpack_require__(430);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_actions__ = __webpack_require__(450);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_services_notification_service__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Subject__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_Subject__);
@@ -164,27 +68,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var FeedPage = /** @class */ (function () {
-    function FeedPage(navParams, store, notificationService, loadingController, navCtrl) {
+var UserPage = /** @class */ (function () {
+    function UserPage(navParams, store, notificationService, navCtrl) {
         this.navParams = navParams;
         this.store = store;
         this.notificationService = notificationService;
-        this.loadingController = loadingController;
         this.navCtrl = navCtrl;
         this.id = null;
         this.loading = false;
-        this.spinner = null;
         this.destroy$ = new __WEBPACK_IMPORTED_MODULE_5_rxjs_Subject__["Subject"]();
-        this.feed = null;
+        this.user = null;
         this.id = this.navParams.get('id');
     }
-    FeedPage.prototype.ionViewWillEnter = function () {
+    UserPage.prototype.ionViewWillEnter = function () {
         var _this = this;
         this.store
-            .select(function (state) { return state.newsState; })
+            .select(function (state) { return state.userState; })
             .takeUntil(this.destroy$)
-            .subscribe(function (newsState) {
-            _this.displayData(newsState);
+            .subscribe(function (userState) {
+            _this.displayData(userState);
         });
         this.notificationService.dispatchError$
             .takeUntil(this.destroy$)
@@ -193,44 +95,98 @@ var FeedPage = /** @class */ (function () {
             //error.text
         });
         if (this.id) {
-            this.feed = null;
-            this.triggerFetch(this.id);
+            this.user = null;
+            this.loading = true;
+            this.fetchUser(this.id);
         }
     };
-    FeedPage.prototype.displayData = function (newsState) {
-        console.log(newsState);
-        if (newsState && !newsState.loading) {
-            if (this.loading) {
-                this.loading = false;
-            }
-            this.feed = newsState.story;
-        }
+    UserPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad UserPage');
     };
-    FeedPage.prototype.triggerFetch = function (itemId) {
-        this.loading = true;
+    UserPage.prototype.fetchUser = function (userId) {
         this.store.dispatch({
-            type: __WEBPACK_IMPORTED_MODULE_3__pages_news_news_actions__["e" /* LOAD_ITEM */],
+            type: __WEBPACK_IMPORTED_MODULE_3__user_actions__["a" /* LOAD_USER */],
             payload: {
-                id: itemId
+                id: userId
             }
         });
     };
-    FeedPage.prototype.viewUser = function (userId) {
+    UserPage.prototype.displayData = function (userState) {
+        //console.log(newsState);
+        if (userState && !userState.loading) {
+            this.loading = false;
+            console.log(userState.user);
+            this.user = userState.user;
+        }
     };
-    FeedPage.prototype.ionViewWillLeave = function () {
-        this.feed = null;
+    UserPage.prototype.ionViewWillLeave = function () {
+        this.user = null;
+        this.destroy$.next(true);
+        this.destroy$.unsubscribe();
     };
-    FeedPage = __decorate([
+    UserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-feed',template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/feed/feed.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>feed</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content *ngIf="!loading">\n  <ion-item class="feed">\n    <div item-content flex-start class="feed-header-wrapper">\n      <h3>{{feed?.title}}</h3>\n      <p>\n        {{ feed?.score }} points by\n\n        <a (click)="viewUser(feed.by)">{{ feed?.by }}</a>\n\n        | {{ feed?.kids?.length }} comments\n      </p>\n    </div>\n  </ion-item>\n\n  <ion-list>\n    <ion-grid >\n      <ion-row>\n        <ion-col col-12>\n          <div *ngFor="let comment of feed?.kids" item-content class="comment">\n            <div *ngIf="comment.text" class="tile">\n              <div class="tile-icon">\n                <i class="icon icon-more-horiz"></i>\n              </div>\n              <div class="tile-content">\n                <p class="tile-title text-gray">\n                  <a (click)="viewUser(comment.by)">{{ comment.by }}</a>\n                  {{ comment?.time | date: \'short\' }}\n                </p>\n                <div class="tile-subtitle" [innerHtml]="comment?.text"></div>\n              </div>\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-list>\n\n</ion-content>\n\n<<ion-content class="content-wrapper" *ngIf="loading">\n  <ion-spinner name="dots"></ion-spinner>\n</ion-content>'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/feed/feed.html"*/,
+            selector: 'page-user',template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/user/user.html"*/'<ion-header>\n  <ion-navbar>\n      <ion-item>\n          <ion-avatar item-start>\n            <img src="https://cdn.pixabay.com/photo/2016/03/31/19/10/avatar-1294773_1280.png">\n          </ion-avatar>\n          <h5>{{id}}</h5>\n        </ion-item>\n  </ion-navbar>\n</ion-header>\n\n<ion-content *ngIf="!loading" padding>\n   <ion-item>\n      <div class="user" item-content>\n          <h2>{{ user?.id }}</h2>\n          <ul>\n              <li *ngIf="user?.created"> Joined {{ user?.created | date: \'short\' }}</li>\n              <li *ngIf="user?.karma"> Karma -  {{ user?.karma || 0 }} <span></span></li>\n          </ul>\n      </div>\n   </ion-item>\n</ion-content>\n\n<ion-content class="content-wrapper" *ngIf="loading">\n    <ion-spinner name="dots"></ion-spinner>\n</ion-content>\n'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/pages/user/user.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared_services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared_services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _e || Object])
-    ], FeedPage);
-    return FeedPage;
-    var _a, _b, _c, _d, _e;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared_services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared_services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _d || Object])
+    ], UserPage);
+    return UserPage;
+    var _a, _b, _c, _d;
 }());
 
-//# sourceMappingURL=feed.js.map
+//# sourceMappingURL=user.js.map
+
+/***/ }),
+
+/***/ 450:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LOAD_USER; });
+/* unused harmony export LOAD_USER_SUCCESS */
+/* unused harmony export LOAD_USER_PENDING */
+/* unused harmony export LOAD_USER_ERROR */
+/* unused harmony export LoadUserAction */
+/* unused harmony export LoadUserSuccessAction */
+/* unused harmony export LoadUserPendingAction */
+/* unused harmony export LoadUserErrorAction */
+var LOAD_USER = '[Load] User';
+var LOAD_USER_SUCCESS = '[Load] User Success';
+var LOAD_USER_PENDING = '[Load] User Pending';
+var LOAD_USER_ERROR = '[Load] User Error';
+var LoadUserAction = /** @class */ (function () {
+    function LoadUserAction(payload) {
+        this.payload = payload;
+        this.type = LOAD_USER;
+    }
+    return LoadUserAction;
+}());
+
+var LoadUserSuccessAction = /** @class */ (function () {
+    function LoadUserSuccessAction(payload) {
+        this.payload = payload;
+        this.type = LOAD_USER_SUCCESS;
+    }
+    return LoadUserSuccessAction;
+}());
+
+var LoadUserPendingAction = /** @class */ (function () {
+    function LoadUserPendingAction(payload) {
+        this.payload = payload;
+        this.type = LOAD_USER_PENDING;
+    }
+    return LoadUserPendingAction;
+}());
+
+var LoadUserErrorAction = /** @class */ (function () {
+    function LoadUserErrorAction(payload) {
+        this.payload = payload;
+        this.type = LOAD_USER_ERROR;
+    }
+    return LoadUserErrorAction;
+}());
+
+//# sourceMappingURL=user.actions.js.map
 
 /***/ })
 

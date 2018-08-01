@@ -6,10 +6,10 @@ webpackJsonp([1],{
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TopPageModule", function() { return TopPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_news_list_news_list_module__ = __webpack_require__(431);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_news_list_news_list_module__ = __webpack_require__(432);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__top__ = __webpack_require__(447);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__top__ = __webpack_require__(448);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var TopPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 430:
+/***/ 431:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -137,14 +137,14 @@ var LoadItemErrorAction = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 431:
+/***/ 432:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewsListModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__news_list__ = __webpack_require__(432);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__news_list__ = __webpack_require__(433);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -177,7 +177,7 @@ var NewsListModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 432:
+/***/ 433:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -186,7 +186,7 @@ var NewsListModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngrx_store__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(255);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_news_news_actions__ = __webpack_require__(430);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_news_news_actions__ = __webpack_require__(431);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Subject__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_Subject__);
@@ -282,27 +282,27 @@ var NewsListComponent = /** @class */ (function () {
         });
     };
     NewsListComponent.prototype.viewUser = function (feed, event) {
+        this.handleDefaults(event);
+        console.log(feed);
+        this.appCtrl.getRootNav().push('UserPage', { id: feed.by });
+    };
+    NewsListComponent.prototype.handleDefaults = function (event) {
         event.preventDefault();
         event.stopPropagation();
         event.stopImmediatePropagation();
-        console.log(feed);
     };
     NewsListComponent.prototype.viewComments = function (feed, event) {
-        event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation();
-        this.appCtrl.getRootNav().push('FeedPage', { id: feed.id });
+        this.handleDefaults(event);
+        this.appCtrl.getRootNav().push('FeedPage', { feed: feed });
     };
     NewsListComponent.prototype.viewFeed = function (feed, event) {
-        event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation();
+        this.handleDefaults(event);
         if (feed.url) {
             console.log(feed.url);
             var browser = this.iab.create(feed.url, '_self', { location: 'no' });
         }
         else {
-            this.appCtrl.getRootNav().push('FeedPage', { id: feed.id });
+            this.appCtrl.getRootNav().push('FeedPage', { feed: feed });
         }
     };
     NewsListComponent.prototype.ngOnDestroy = function () {
@@ -317,17 +317,21 @@ var NewsListComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: "news-list",template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/'<ion-content *ngIf="!initial">\n    <ion-list>\n        <ion-item class="feed" *ngFor="let feed of feeds; let i = index;">\n            <div class="feed-index" item-content>{{ i + 1}}</div>\n            <div class="feed-metadata" item-content>\n                <h2 class="feed-header">\n                    <a class="feed-header-title" (click)="viewFeed(feed,$event)">{{ feed?.title }}</a>\n                </h2>\n                <div item-content>\n                    <span>Posted by</span>\n                    <a (click)="viewUser(feed,$event)">{{ feed?.by }}</a> |\n                    <a (click)="viewComments(feed,$event)">{{feed?.kids?.length || 0}} comments</a>\n                </div>\n            </div>\n        </ion-item>\n    </ion-list>\n    <ion-infinite-scroll (ionInfinite)="loadMore($event)">\n        <ion-infinite-scroll-content loadingSpinner="dots">\n        </ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n\n<ion-content class="content-wrapper" *ngIf="initial">\n    <ion-spinner name="dots"></ion-spinner>\n</ion-content>'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */],
+            __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__["a" /* NotificationService */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */]])
     ], NewsListComponent);
     return NewsListComponent;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=news-list.js.map
 
 /***/ }),
 
-/***/ 447:
+/***/ 448:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

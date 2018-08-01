@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {LoadingController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Store } from "@ngrx/store";
 import { State, NewsState } from "../../pages/news/news.reducer";
 import { Feed } from "../../store/models/feed.model";
@@ -21,14 +21,14 @@ export class FeedPage {
   spinner: any = null;
   destroy$: Subject<boolean> = new Subject<boolean>();
   feed: any = null;
+  navFeed: Feed = null;
 
   constructor(
     public navParams: NavParams,
     public store: Store<State>,
     public notificationService: NotificationService,
-    public loadingController: LoadingController,
     public navCtrl: NavController) {
-    this.id = this.navParams.get('id');
+    this.navFeed = this.navParams.get('feed');
   }
 
   ionViewWillEnter(){
@@ -48,27 +48,26 @@ export class FeedPage {
       });
 
 
-      if(this.id){
+      if(this.navFeed && this.navFeed.id){
         this.feed = null; 
-        this.triggerFetch(this.id);
+        this.loading = true;
+        this.triggerFetch(this.navFeed.id);
       }
     
   }
 
 
   displayData(newsState: NewsState){
-    console.log(newsState);
+    //console.log(newsState);
     if (newsState && !newsState.loading) {
 
-      if(this.loading){
-        this.loading = false;
-      }
+      this.loading = false;
+      console.log(newsState.story);
       this.feed = newsState.story;
     }
   }
 
   triggerFetch(itemId: number) {
-    this.loading = true;
     this.store.dispatch({
       type: newsActions.LOAD_ITEM,
       payload: <newsActions.itemQuery>{
@@ -83,7 +82,9 @@ export class FeedPage {
   }
 
   ionViewWillLeave(){
-   this.feed = null;
+    this.feed = null;
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 
 }

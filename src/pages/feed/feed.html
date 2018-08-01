@@ -1,6 +1,19 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>feed</ion-title>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://cdn.pixabay.com/photo/2016/03/31/19/10/avatar-1294773_1280.png">
+      </ion-avatar>
+      <h5>{{navFeed?.by}}</h5>
+      <p>
+        <span>
+            {{navFeed?.score}} points
+        </span>
+        <span>
+            | <span>{{navFeed?.kids?.length || 0}} comments</span>
+        </span>
+      </p>
+    </ion-item>
   </ion-navbar>
 </ion-header>
 
@@ -22,8 +35,8 @@
     <ion-grid >
       <ion-row>
         <ion-col col-12>
-          <div *ngFor="let comment of feed?.kids" item-content class="comment">
-            <div *ngIf="comment.text" class="tile">
+          <div *ngFor="let comment of feed?.kids" item-content>
+            <div *ngIf="comment.text" class="comment tile">
               <div class="tile-icon">
                 <i class="icon icon-more-horiz"></i>
               </div>
@@ -43,6 +56,6 @@
 
 </ion-content>
 
-<<ion-content class="content-wrapper" *ngIf="loading">
+<ion-content class="content-wrapper" *ngIf="loading">
   <ion-spinner name="dots"></ion-spinner>
 </ion-content>
