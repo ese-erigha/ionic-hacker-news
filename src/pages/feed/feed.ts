@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams,App } from 'ionic-angular';
 import { Store } from "@ngrx/store";
 import { State, NewsState } from "../../pages/news/news.reducer";
 import { Feed } from "../../store/models/feed.model";
@@ -27,7 +27,8 @@ export class FeedPage {
     public navParams: NavParams,
     public store: Store<State>,
     public notificationService: NotificationService,
-    public navCtrl: NavController) {
+    public navCtrl: NavController,
+    public appCtrl: App) {
     this.navFeed = this.navParams.get('feed');
   }
 
@@ -76,9 +77,16 @@ export class FeedPage {
     });
   }
 
+  viewUser(userId:string,event){
 
-  viewUser(userId:string){
+    this.handleDefaults(event);
+    this.appCtrl.getRootNav().push('UserPage',{id: userId});
+  }
 
+  handleDefaults(event){
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
   }
 
   ionViewWillLeave(){

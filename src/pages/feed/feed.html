@@ -4,13 +4,13 @@
       <ion-avatar item-start>
         <img src="https://cdn.pixabay.com/photo/2016/03/31/19/10/avatar-1294773_1280.png">
       </ion-avatar>
-      <h5>{{navFeed?.by}}</h5>
+      <h5 class="feed-user">{{navFeed?.by}}</h5>
       <p>
-        <span>
+        <span class="feed-score">
             {{navFeed?.score}} points
         </span>
         <span>
-            | <span>{{navFeed?.kids?.length || 0}} comments</span>
+           <span class="feed-comment-count"> |  {{navFeed?.kids?.length || 0}} comments</span>
         </span>
       </p>
     </ion-item>
@@ -20,39 +20,35 @@
 <ion-content *ngIf="!loading">
   <ion-item class="feed">
     <div item-content flex-start class="feed-header-wrapper">
-      <h3>{{feed?.title}}</h3>
-      <p>
-        {{ feed?.score }} points by
-
-        <a (click)="viewUser(feed.by)">{{ feed?.by }}</a>
-
-        | {{ feed?.kids?.length }} comments
-      </p>
+      <h3 class="feed-title">{{feed?.title}}</h3>
+      <ion-row>
+          <ion-col>
+              <button  (click)="viewUser(feed.by,$event)"ion-button icon-start clear small class="btn-author">
+                  <ion-icon name="contact"></ion-icon>
+                  <div class="feed-author">{{ feed?.by }}</div>
+              </button>
+          </ion-col>
+        </ion-row>
     </div>
   </ion-item>
 
-  <ion-list>
-    <ion-grid >
-      <ion-row>
-        <ion-col col-12>
-          <div *ngFor="let comment of feed?.kids" item-content>
-            <div *ngIf="comment.text" class="comment tile">
-              <div class="tile-icon">
-                <i class="icon icon-more-horiz"></i>
-              </div>
-              <div class="tile-content">
-                <p class="tile-title text-gray">
-                  <a (click)="viewUser(comment.by)">{{ comment.by }}</a>
-                  {{ comment?.time | date: 'short' }}
-                </p>
-                <div class="tile-subtitle" [innerHtml]="comment?.text"></div>
-              </div>
-            </div>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-list>
+  <div class="card-list-wrapper">
+     <ion-card class="comment-header-wrapper">
+        <ion-card-header>
+          <span class="title">Comments</span>
+        </ion-card-header>
+     </ion-card>
+
+      <ion-card *ngFor="let comment of feed?.kids">
+          <ion-card-header>
+              <a  class="comment-author" (click)="viewUser(comment.by,$event)">{{ comment.by }}</a>
+               - <span class="comment-date"> {{ comment?.time | date: 'short' }}</span>
+          </ion-card-header>
+          <ion-card-content>
+              <div class="comment-text" [innerHtml]="comment?.text"></div>
+          </ion-card-content>
+      </ion-card>
+  </div>
 
 </ion-content>
 

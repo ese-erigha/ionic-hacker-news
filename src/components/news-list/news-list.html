@@ -8,8 +8,7 @@
             </ion-card-header>
             <ion-card-content>
                 <p>
-                    <button (click)="viewUser(feed,$event)" ion-button icon-start clear small>
-                        
+                    <button ion-button icon-start clear small>
                         <ion-icon name="heart"></ion-icon>
                         <div class="feed-score">{{feed?.score || 0}} points</div>
                     </button>
@@ -18,7 +17,7 @@
 
             <ion-row>
                 <ion-col>
-                    <button ion-button icon-start clear small>
+                    <button (click)="viewUser(feed,$event)" ion-button icon-start clear small>
                             <ion-icon name="contact"></ion-icon>
                             <div class="feed-author">{{ feed?.by }}</div>
                     </button>
@@ -34,21 +33,6 @@
 
     </div>
 
-    <!-- <ion-list > 
-            <ion-item class="feed" *ngFor="let feed of feeds; let i = index;">
-                <div class="feed-index" item-content>{{feed?.score || 0}}</div>
-                <div class="feed-metadata" item-content>
-                    <h2 class="feed-header">
-                        <a class="feed-header-title" (click)="viewFeed(feed,$event)">{{ feed?.title }}</a>
-                    </h2>
-                    <div item-content>
-                        <span>By </span>
-                        <a (click)="viewUser(feed,$event)">{{ feed?.by }}</a>
-                        <a *ngIf="feedType !== 'job'" (click)="viewComments(feed,$event)"> | {{feed?.kids?.length || 0}} comments</a>
-                    </div>
-                </div>
-            </ion-item>
-    </ion-list> -->
     <ion-refresher (ionRefresh)="doRefresh($event)">
             <ion-refresher-content
               pullingIcon="arrow-dropdown"

@@ -7,7 +7,7 @@ page-feed {
         .toolbar-content{
             
             .item{
-                background-color: #f8f8f8!important;
+                background-color: #e0301e!important;
 
                 .item-inner{
 
@@ -16,6 +16,24 @@ page-feed {
                     .label{
                         margin-bottom: 5px;
                         margin-top: -5px;
+
+
+                        @mixin fontStyle {
+                            color: #fff;
+                            font-weight: bold;
+                        }
+                        
+                        .feed-user{
+                            @include fontStyle();
+                        }
+
+                        .feed-score{
+                            @include fontStyle();
+                        }
+
+                        .feed-comment-count{
+                            @include fontStyle();
+                        }
                     }
                 }
             }
@@ -35,8 +53,59 @@ page-feed {
 
         .scroll-content{
 
+            background-color: #f4f4f7;
+
             .feed{
-                margin-top: 75px;
+                margin-top: 70px;
+                background-color: #f4F4f7;
+                position: sticky;
+                top: 65px;
+
+                .item-inner{
+
+                    border-bottom: 0px;
+
+                    .feed-header-wrapper{
+
+                        .feed-title{
+                            font-size: 3rem;
+                            color: #000;
+                        }
+    
+                        .btn-author{
+                            color: gray;
+                            padding-left: 0px;
+                        }
+                    }
+                }
+            }
+
+            .card-list-wrapper{
+                background-color: #f4f4f7;
+
+
+                .comment-header-wrapper{
+                   margin-bottom: 5px!important;
+
+                   .card-header{
+
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+
+                    .title{
+                        font-size: 2rem;
+                        font-weight: bold;
+                        color: gray;
+                    }
+                   }
+                   
+                   
+                }
+
+                .comment-text{
+                    text-align: justify;
+                    
+                }
             }
 
             .label{

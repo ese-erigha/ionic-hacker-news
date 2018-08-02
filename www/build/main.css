@@ -25690,6 +25690,10 @@ ion-navbar.toolbar {
   color: #fff;
 }
 
+.toolbar .back-button {
+  color: #fff;
+}
+
 .toolbar .toolbar-content .toolbar-title {
   color: #fff;
   font-weight: bold;
@@ -25788,7 +25792,7 @@ page-feed .toolbar {
 }
 
 page-feed .toolbar .toolbar-content .item {
-  background-color: #f8f8f8 !important;
+  background-color: #e0301e !important;
 }
 
 page-feed .toolbar .toolbar-content .item .item-inner {
@@ -25798,6 +25802,21 @@ page-feed .toolbar .toolbar-content .item .item-inner {
 page-feed .toolbar .toolbar-content .item .item-inner .label {
   margin-bottom: 5px;
   margin-top: -5px;
+}
+
+page-feed .toolbar .toolbar-content .item .item-inner .label .feed-user {
+  color: #fff;
+  font-weight: bold;
+}
+
+page-feed .toolbar .toolbar-content .item .item-inner .label .feed-score {
+  color: #fff;
+  font-weight: bold;
+}
+
+page-feed .toolbar .toolbar-content .item .item-inner .label .feed-comment-count {
+  color: #fff;
+  font-weight: bold;
 }
 
 page-feed .content-wrapper .scroll-content {
@@ -25815,8 +25834,53 @@ page-feed .content-wrapper .scroll-content {
   align-items: center;
 }
 
+page-feed .content .scroll-content {
+  background-color: #f4f4f7;
+}
+
 page-feed .content .scroll-content .feed {
-  margin-top: 75px;
+  margin-top: 70px;
+  background-color: #f4F4f7;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 65px;
+}
+
+page-feed .content .scroll-content .feed .item-inner {
+  border-bottom: 0px;
+}
+
+page-feed .content .scroll-content .feed .item-inner .feed-header-wrapper .feed-title {
+  font-size: 3rem;
+  color: #000;
+}
+
+page-feed .content .scroll-content .feed .item-inner .feed-header-wrapper .btn-author {
+  color: gray;
+  padding-left: 0px;
+}
+
+page-feed .content .scroll-content .card-list-wrapper {
+  background-color: #f4f4f7;
+}
+
+page-feed .content .scroll-content .card-list-wrapper .comment-header-wrapper {
+  margin-bottom: 5px !important;
+}
+
+page-feed .content .scroll-content .card-list-wrapper .comment-header-wrapper .card-header {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+page-feed .content .scroll-content .card-list-wrapper .comment-header-wrapper .card-header .title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: gray;
+}
+
+page-feed .content .scroll-content .card-list-wrapper .comment-text {
+  text-align: justify;
 }
 
 page-feed .content .scroll-content .label {
@@ -25854,6 +25918,10 @@ page-new .scroll-content .infinite-loading {
   margin-bottom: 5px !important;
 }
 
+page-news .content .scroll-content {
+  margin-top: -4.5px;
+}
+
 page-news .content .scroll-content .tabs .tabbar {
   background: #fff;
 }
@@ -25885,7 +25953,7 @@ page-user .toolbar {
 }
 
 page-user .toolbar .toolbar-content .item {
-  background-color: #f8f8f8 !important;
+  background-color: #e0301e !important;
 }
 
 page-user .toolbar .toolbar-content .item .item-inner {
@@ -25895,6 +25963,11 @@ page-user .toolbar .toolbar-content .item .item-inner {
 page-user .toolbar .toolbar-content .item .item-inner .label {
   margin-bottom: 5px;
   margin-top: -5px;
+}
+
+page-user .toolbar .toolbar-content .item .item-inner .label .feed-user {
+  color: #fff;
+  font-weight: bold;
 }
 
 page-user .content-wrapper .scroll-content {
@@ -25914,6 +25987,11 @@ page-user .content-wrapper .scroll-content {
 
 page-user .content .scroll-content .item {
   margin-top: 75px;
+  padding-top: 20px;
+}
+
+page-user .content .scroll-content .item .user h2 {
+  font-size: 2.5rem;
 }
 
 page-user .content .scroll-content .label {
