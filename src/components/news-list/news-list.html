@@ -1,7 +1,8 @@
-<ion-content *ngIf="!initial">
-    <ion-list>
+<ion-content>
+    <ion-spinner class="page-spinner" *ngIf="initial" name="dots"></ion-spinner>
+    <ion-list *ngIf="!initial"> 
             <ion-item class="feed" *ngFor="let feed of feeds; let i = index;">
-                <div class="feed-index" item-content>{{ i + 1}}</div>
+                <div class="feed-index" item-content>{{feed?.score || 0}}</div>
                 <div class="feed-metadata" item-content>
                     <h2 class="feed-header">
                         <a class="feed-header-title" (click)="viewFeed(feed,$event)">{{ feed?.title }}</a>
@@ -10,18 +11,17 @@
                         <span>By </span>
                         <a (click)="viewUser(feed,$event)">{{ feed?.by }}</a>
                         <a *ngIf="feedType !== 'job'" (click)="viewComments(feed,$event)"> | {{feed?.kids?.length || 0}} comments</a>
-                        <span> | {{feed?.score || 0}} points</span>
                     </div>
                 </div>
             </ion-item>
     </ion-list>
 
-    <ion-infinite-scroll *ngIf="pageNumber !== totalPages" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll [class.hide]="initial" *ngIf="pageNumber !== totalPages" (ionInfinite)="loadMore($event)">
         <ion-infinite-scroll-content loadingSpinner="dots">
         </ion-infinite-scroll-content>
     </ion-infinite-scroll>
 </ion-content>
 
-<ion-content class="content-wrapper" *ngIf="initial">
-    <ion-spinner name="dots"></ion-spinner>
-</ion-content>
+<!-- <ion-content class="content-wrapper" *ngIf="initial">
+    
+</ion-content> -->

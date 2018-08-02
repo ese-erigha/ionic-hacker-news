@@ -25693,6 +25693,16 @@ news-list .content-wrapper .scroll-content {
   align-items: center;
 }
 
+news-list .scroll-content .page-spinner {
+  position: fixed;
+  top: 50%;
+  left: 49%;
+}
+
+news-list .scroll-content .hide {
+  display: none;
+}
+
 news-list .scroll-content .card {
   margin-left: 0px !important;
   margin-right: 0px !important;

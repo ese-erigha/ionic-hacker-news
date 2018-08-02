@@ -65,11 +65,11 @@ var map = {
 		6
 	],
 	"../pages/jobs/jobs.module": [
-		425,
+		426,
 		4
 	],
 	"../pages/new/new.module": [
-		426,
+		425,
 		3
 	],
 	"../pages/news/news.module": [
@@ -81,11 +81,11 @@ var map = {
 		2
 	],
 	"../pages/user/user.module": [
-		429,
+		430,
 		1
 	],
 	"../pages/users/users.module": [
-		430,
+		429,
 		7
 	]
 };
@@ -291,12 +291,12 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/best/best.module#BestPageModule', name: 'BestPage', segment: 'best', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/feed/feed.module#FeedPageModule', name: 'FeedPage', segment: 'feed', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/jobs/jobs.module#JobsPageModule', name: 'JobsPage', segment: 'jobs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/new/new.module#NewPageModule', name: 'NewPage', segment: 'new', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/jobs/jobs.module#JobsPageModule', name: 'JobsPage', segment: 'jobs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/news/news.module#NewsPageModule', name: 'NewsPage', segment: 'news', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/top/top.module#TopPageModule', name: 'TopPage', segment: 'top', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/user/user.module#UserPageModule', name: 'UserPage', segment: 'user', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/users/users.module#UsersPageModule', name: 'UsersPage', segment: 'users', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/users/users.module#UsersPageModule', name: 'UsersPage', segment: 'users', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/user/user.module#UserPageModule', name: 'UserPage', segment: 'user', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_12__shared_shared_module__["a" /* SharedModule */].forRoot(),

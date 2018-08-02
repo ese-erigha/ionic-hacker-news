@@ -10,6 +10,17 @@ news-list {
     }
 
     .scroll-content{
+
+        .page-spinner{
+            position: fixed;
+            top: 50%;
+            left: 49%;
+        }
+
+        .hide{
+            display: none;
+        }
+
         .card{
             margin-left: 0px!important;
             margin-right: 0px!important;

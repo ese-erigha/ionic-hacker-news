@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from "@angular/core";
+import { Component, Input, OnInit, AfterViewInit, OnDestroy } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { LoadingController, NavController,App } from 'ionic-angular';
@@ -15,7 +15,7 @@ import "rxjs/add/operator/takeUntil";
   selector: "news-list",
   templateUrl: "news-list.html"
 })
-export class NewsListComponent implements OnInit, OnDestroy {
+export class NewsListComponent implements OnInit,AfterViewInit, OnDestroy {
   @Input("feedType") feedType: string = null;
   feeds: Array<Feed> = [];
   pageNumber: number = 0;
@@ -35,27 +35,34 @@ export class NewsListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+    
+  }
+
+
+  ngAfterViewInit(){
     this.store
-      .select(state => state.newsState)
-      .takeUntil(this.destroy$)
-      .subscribe((newsState: NewsState) => {
-        this.displayData(newsState);
-      });
+    .select(state => state.newsState)
+    .takeUntil(this.destroy$)
+    .subscribe((newsState: NewsState) => {
+      this.displayData(newsState);
+    });
 
-    this.notificationService.dispatchError$
-      .takeUntil(this.destroy$)
-      .subscribe((error: CustomError) => {
-        //error.title
-        //error.text
-      });
+  this.notificationService.dispatchError$
+    .takeUntil(this.destroy$)
+    .subscribe((error: CustomError) => {
+      //error.title
+      //error.text
+    });
 
 
-    if (this.feedType) {
-      this.initial = true;
-      this.feeds = [];
-      this.pageNumber = 1;
-      this.triggerFetch(this.feedType, this.pageNumber);
-    }
+  if (this.feedType) {
+    this.initial = true;
+    this.feeds = [];
+    this.pageNumber = 1;
+    this.totalPages = 100;
+    this.infiniteScroll = null;
+    this.triggerFetch(this.feedType, this.pageNumber);
+  }
   }
 
   displayData(newsState: NewsState) {
@@ -66,7 +73,6 @@ export class NewsListComponent implements OnInit, OnDestroy {
         this.initial = false;
         //this.spinner.dismiss();
       }
-
       this.feeds = [...this.feeds, ...newsState.feeds];
 
       let feed = newsState[this.feedType];
@@ -91,6 +97,7 @@ export class NewsListComponent implements OnInit, OnDestroy {
   triggerFetch(feedType: string, pageNumber: number, infiniteScroll = null) {
     
     this.infiniteScroll = infiniteScroll;
+
     this.store.dispatch({
       type: newsActions.LOAD_FEEDS,
       payload: <newsActions.feedQuery>{
