@@ -15,7 +15,14 @@
                 </div>
             </ion-item>
     </ion-list>
-
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content
+              pullingIcon="arrow-dropdown"
+              pullingText="Pull to refresh"
+              refreshingSpinner="dots"
+              refreshingText="Refreshing feed...">
+            </ion-refresher-content>
+    </ion-refresher>
     <ion-infinite-scroll [class.hide]="initial" *ngIf="pageNumber !== totalPages" (ionInfinite)="loadMore($event)">
         <ion-infinite-scroll-content loadingSpinner="dots">
         </ion-infinite-scroll-content>

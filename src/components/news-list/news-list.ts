@@ -22,6 +22,8 @@ export class NewsListComponent implements OnInit,AfterViewInit, OnDestroy {
   totalPages: number = 100; //dummy value
   infiniteScroll: any = null;
   initial: boolean = false;
+  isRefreshing: boolean = false;
+  refresher: any = null;
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
@@ -73,7 +75,15 @@ export class NewsListComponent implements OnInit,AfterViewInit, OnDestroy {
         this.initial = false;
         //this.spinner.dismiss();
       }
-      this.feeds = [...this.feeds, ...newsState.feeds];
+
+      if(this.isRefreshing){
+        this.isRefreshing = false;
+        this.refresher.complete();
+        this.feeds = newsState.feeds;
+      }else{
+        this.feeds = [...this.feeds, ...newsState.feeds];
+      }
+      
 
       let feed = newsState[this.feedType];
       this.pageNumber = feed.pageNumber;
@@ -105,6 +115,14 @@ export class NewsListComponent implements OnInit,AfterViewInit, OnDestroy {
         pageNumber: pageNumber
       }
     });
+  }
+
+  doRefresh(refresher){   
+    this.pageNumber = 1;
+    this.totalPages = 100;
+    this.isRefreshing = true;
+    this.refresher = refresher;
+    this.triggerFetch(this.feedType,this.pageNumber);
   }
 
   viewUser(feed:Feed,event){

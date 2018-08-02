@@ -223,6 +223,8 @@ var NewsListComponent = /** @class */ (function () {
         this.totalPages = 100; //dummy value
         this.infiniteScroll = null;
         this.initial = false;
+        this.isRefreshing = false;
+        this.refresher = null;
         this.destroy$ = new __WEBPACK_IMPORTED_MODULE_6_rxjs_Subject__["Subject"]();
     }
     NewsListComponent.prototype.ngOnInit = function () {
@@ -256,7 +258,14 @@ var NewsListComponent = /** @class */ (function () {
                 this.initial = false;
                 //this.spinner.dismiss();
             }
-            this.feeds = this.feeds.concat(newsState.feeds);
+            if (this.isRefreshing) {
+                this.isRefreshing = false;
+                this.refresher.complete();
+                this.feeds = newsState.feeds;
+            }
+            else {
+                this.feeds = this.feeds.concat(newsState.feeds);
+            }
             var feed = newsState[this.feedType];
             this.pageNumber = feed.pageNumber;
             this.totalPages = feed.totalPages;
@@ -282,6 +291,13 @@ var NewsListComponent = /** @class */ (function () {
                 pageNumber: pageNumber
             }
         });
+    };
+    NewsListComponent.prototype.doRefresh = function (refresher) {
+        this.pageNumber = 1;
+        this.totalPages = 100;
+        this.isRefreshing = true;
+        this.refresher = refresher;
+        this.triggerFetch(this.feedType, this.pageNumber);
     };
     NewsListComponent.prototype.viewUser = function (feed, event) {
         this.handleDefaults(event);
@@ -318,12 +334,16 @@ var NewsListComponent = /** @class */ (function () {
     ], NewsListComponent.prototype, "feedType", void 0);
     NewsListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "news-list",template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/'<ion-content>\n    <ion-spinner class="page-spinner" *ngIf="initial" name="dots"></ion-spinner>\n    <ion-list *ngIf="!initial"> \n            <ion-item class="feed" *ngFor="let feed of feeds; let i = index;">\n                <div class="feed-index" item-content>{{feed?.score || 0}}</div>\n                <div class="feed-metadata" item-content>\n                    <h2 class="feed-header">\n                        <a class="feed-header-title" (click)="viewFeed(feed,$event)">{{ feed?.title }}</a>\n                    </h2>\n                    <div item-content>\n                        <span>By </span>\n                        <a (click)="viewUser(feed,$event)">{{ feed?.by }}</a>\n                        <a *ngIf="feedType !== \'job\'" (click)="viewComments(feed,$event)"> | {{feed?.kids?.length || 0}} comments</a>\n                    </div>\n                </div>\n            </ion-item>\n    </ion-list>\n\n    <ion-infinite-scroll [class.hide]="initial" *ngIf="pageNumber !== totalPages" (ionInfinite)="loadMore($event)">\n        <ion-infinite-scroll-content loadingSpinner="dots">\n        </ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n\n<!-- <ion-content class="content-wrapper" *ngIf="initial">\n    \n</ion-content> -->'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/
+            selector: "news-list",template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/'<ion-content>\n    <ion-spinner class="page-spinner" *ngIf="initial" name="dots"></ion-spinner>\n    <ion-list *ngIf="!initial"> \n            <ion-item class="feed" *ngFor="let feed of feeds; let i = index;">\n                <div class="feed-index" item-content>{{feed?.score || 0}}</div>\n                <div class="feed-metadata" item-content>\n                    <h2 class="feed-header">\n                        <a class="feed-header-title" (click)="viewFeed(feed,$event)">{{ feed?.title }}</a>\n                    </h2>\n                    <div item-content>\n                        <span>By </span>\n                        <a (click)="viewUser(feed,$event)">{{ feed?.by }}</a>\n                        <a *ngIf="feedType !== \'job\'" (click)="viewComments(feed,$event)"> | {{feed?.kids?.length || 0}} comments</a>\n                    </div>\n                </div>\n            </ion-item>\n    </ion-list>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n            <ion-refresher-content\n              pullingIcon="arrow-dropdown"\n              pullingText="Pull to refresh"\n              refreshingSpinner="dots"\n              refreshingText="Refreshing...">\n            </ion-refresher-content>\n    </ion-refresher>\n    <ion-infinite-scroll [class.hide]="initial" *ngIf="pageNumber !== totalPages" (ionInfinite)="loadMore($event)">\n        <ion-infinite-scroll-content loadingSpinner="dots">\n        </ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n\n<!-- <ion-content class="content-wrapper" *ngIf="initial">\n    \n</ion-content> -->'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */],
+            __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__["a" /* NotificationService */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */]])
     ], NewsListComponent);
     return NewsListComponent;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=news-list.js.map

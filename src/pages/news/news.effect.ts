@@ -30,7 +30,7 @@ export class NewsEffects {
                                             })
                                             .switchMap(actionAndState =>{
 
-                                                if(!Object.keys(actionAndState.feed).length){ //If feed type data is empty
+                                                if(!Object.keys(actionAndState.feed).length || actionAndState.payload.pageNumber === 1 ){ //If feed type data is empty
 
                                                     return this.newsService.getFeedIds(this.newsService.getFeedKey(actionAndState.payload.type))
                                                                 
