@@ -1,3 +1,26 @@
 page-news {
 
+    .content{
+
+        .scroll-content{
+
+            .tabs{
+
+                .tabbar{
+
+                    background: #fff;
+
+                    .tab-button[aria-selected=true] {
+                        color: #e0301e;
+                        padding: 0;
+
+                        .tab-button-icon{
+                            color: #e0301e;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }

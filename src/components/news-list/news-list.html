@@ -1,6 +1,40 @@
 <ion-content>
     <ion-spinner class="page-spinner" *ngIf="initial" name="dots"></ion-spinner>
-    <ion-list *ngIf="!initial"> 
+
+    <div class="card-list-wrapper" *ngIf="!initial">
+        <ion-card *ngFor="let feed of feeds; let i = index;"> 
+            <ion-card-header>
+                <span class="feed-title">{{ feed?.title }}</span>
+            </ion-card-header>
+            <ion-card-content>
+                <p>
+                    <button (click)="viewUser(feed,$event)" ion-button icon-start clear small>
+                        
+                        <ion-icon name="heart"></ion-icon>
+                        <div class="feed-score">{{feed?.score || 0}} points</div>
+                    </button>
+                </p>
+            </ion-card-content>
+
+            <ion-row>
+                <ion-col>
+                    <button ion-button icon-start clear small>
+                            <ion-icon name="contact"></ion-icon>
+                            <div class="feed-author">{{ feed?.by }}</div>
+                    </button>
+                </ion-col>
+                <ion-col *ngIf="feedType !== 'job'">
+                        <button (click)="viewComments(feed,$event)" ion-button icon-start clear small>
+                            <ion-icon name="text"></ion-icon>
+                            <div class="feed-comment-count">{{feed?.kids?.length || 0}} comments</div>
+                        </button>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+
+    </div>
+
+    <!-- <ion-list > 
             <ion-item class="feed" *ngFor="let feed of feeds; let i = index;">
                 <div class="feed-index" item-content>{{feed?.score || 0}}</div>
                 <div class="feed-metadata" item-content>
@@ -14,7 +48,7 @@
                     </div>
                 </div>
             </ion-item>
-    </ion-list>
+    </ion-list> -->
     <ion-refresher (ionRefresh)="doRefresh($event)">
             <ion-refresher-content
               pullingIcon="arrow-dropdown"

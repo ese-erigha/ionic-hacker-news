@@ -25678,6 +25678,27 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+.app-root {
+  font-family: 'Alegreya', serif;
+}
+
+.toolbar .toolbar-background {
+  background: #e0301e;
+}
+
+.toolbar .bar-buttons {
+  color: #fff;
+}
+
+.toolbar .toolbar-content .toolbar-title {
+  color: #fff;
+  font-weight: bold;
+}
+
+.content {
+  background-color: #f4F4f7;
+}
+
 news-list .content-wrapper .scroll-content {
   display: -webkit-box;
   display: -webkit-flex;
@@ -25706,26 +25727,47 @@ news-list .scroll-content .hide {
 news-list .scroll-content .card {
   margin-left: 0px !important;
   margin-right: 0px !important;
+  margin-bottom: 2px;
   width: 100% !important;
+  background-color: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+news-list .scroll-content .card .card-header {
+  overflow: auto;
+  text-overflow: initial;
+  white-space: normal;
+  color: #000 !important;
+}
+
+news-list .scroll-content .card .card-header .feed-title {
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Alegreya', serif;
+  font-size: 2rem;
+}
+
+news-list .scroll-content .card .card-content {
+  padding-bottom: 0px;
+}
+
+news-list .scroll-content .card .card-content p button {
+  padding-left: 0px;
+  color: #e0301e;
+}
+
+news-list .scroll-content .card .row {
+  margin-top: -15px;
+}
+
+news-list .scroll-content .card .row button {
+  color: gray;
+  background: transparent;
 }
 
 news-list .input-wrapper .label {
   display: none;
-}
-
-news-list .feed .feed-index {
-  margin-right: 25px;
-  font-weight: 700;
-  color: #5755d9;
-}
-
-news-list .feed .feed-metadata {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-news-list .feed .feed-metadata .feed-header .feed-header-title {
-  color: #727e96;
 }
 
 page-best .scroll-content {
@@ -25810,6 +25852,19 @@ page-new .scroll-content .list {
 
 page-new .scroll-content .infinite-loading {
   margin-bottom: 5px !important;
+}
+
+page-news .content .scroll-content .tabs .tabbar {
+  background: #fff;
+}
+
+page-news .content .scroll-content .tabs .tabbar .tab-button[aria-selected=true] {
+  color: #e0301e;
+  padding: 0;
+}
+
+page-news .content .scroll-content .tabs .tabbar .tab-button[aria-selected=true] .tab-button-icon {
+  color: #e0301e;
 }
 
 page-top .scroll-content {

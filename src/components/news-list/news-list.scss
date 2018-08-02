@@ -24,7 +24,47 @@ news-list {
         .card{
             margin-left: 0px!important;
             margin-right: 0px!important;
+            margin-bottom: 2px;
             width: 100%!important;
+            background-color: #fff;
+            padding-left: 10px;
+            padding-right: 10px;
+
+            .card-header{
+                overflow: auto;
+                text-overflow: initial;
+                white-space: normal;
+                color: #000!important;
+
+                .feed-title{
+                    font-weight: bold;
+                    font-family: 'Open Sans', sans-serif;
+                    font-family: 'Alegreya', serif;
+                    font-size: 2rem;
+                }
+            }
+
+            .card-content{
+                padding-bottom: 0px;
+
+                p {
+
+                    button{
+                        padding-left: 0px;
+                        color: #e0301e;
+                        
+                    }
+                }
+            }
+
+            .row{
+                margin-top: -15px;
+
+                button{
+                    color: gray;
+                    background: transparent;
+                }
+            }
         }
     }
 
@@ -32,29 +72,6 @@ news-list {
 
         .label{
             display: none;
-        }
-    }
-
-    .feed{
-
-        .feed-index{
-            margin-right: 25px;
-            font-weight: 700;
-            color: #5755d9;
-        }
-
-        .feed-metadata{
-            padding-top: 10px;
-            padding-bottom: 10px;
-
-
-            .feed-header{
-
-                .feed-header-title{
-
-                    color: #727e96;
-                }
-            }
         }
     }
 }

@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 427:
+/***/ 428:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_news_list_news_list_module__ = __webpack_require__(432);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__top__ = __webpack_require__(446);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__top__ = __webpack_require__(450);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -334,7 +334,7 @@ var NewsListComponent = /** @class */ (function () {
     ], NewsListComponent.prototype, "feedType", void 0);
     NewsListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "news-list",template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/'<ion-content>\n    <ion-spinner class="page-spinner" *ngIf="initial" name="dots"></ion-spinner>\n    <ion-list *ngIf="!initial"> \n            <ion-item class="feed" *ngFor="let feed of feeds; let i = index;">\n                <div class="feed-index" item-content>{{feed?.score || 0}}</div>\n                <div class="feed-metadata" item-content>\n                    <h2 class="feed-header">\n                        <a class="feed-header-title" (click)="viewFeed(feed,$event)">{{ feed?.title }}</a>\n                    </h2>\n                    <div item-content>\n                        <span>By </span>\n                        <a (click)="viewUser(feed,$event)">{{ feed?.by }}</a>\n                        <a *ngIf="feedType !== \'job\'" (click)="viewComments(feed,$event)"> | {{feed?.kids?.length || 0}} comments</a>\n                    </div>\n                </div>\n            </ion-item>\n    </ion-list>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n            <ion-refresher-content\n              pullingIcon="arrow-dropdown"\n              pullingText="Pull to refresh"\n              refreshingSpinner="dots"\n              refreshingText="Refreshing feed...">\n            </ion-refresher-content>\n    </ion-refresher>\n    <ion-infinite-scroll [class.hide]="initial" *ngIf="pageNumber !== totalPages" (ionInfinite)="loadMore($event)">\n        <ion-infinite-scroll-content loadingSpinner="dots">\n        </ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n\n<!-- <ion-content class="content-wrapper" *ngIf="initial">\n    \n</ion-content> -->'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/
+            selector: "news-list",template:/*ion-inline-start:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/'<ion-content>\n    <ion-spinner class="page-spinner" *ngIf="initial" name="dots"></ion-spinner>\n\n    <div class="card-list-wrapper" *ngIf="!initial">\n        <ion-card *ngFor="let feed of feeds; let i = index;"> \n            <ion-card-header>\n                <span class="feed-title">{{ feed?.title }}</span>\n            </ion-card-header>\n            <ion-card-content>\n                <p>\n                    <button (click)="viewUser(feed,$event)" ion-button icon-start clear small>\n                        \n                        <ion-icon name="heart"></ion-icon>\n                        <div class="feed-score">{{feed?.score || 0}} points</div>\n                    </button>\n                </p>\n            </ion-card-content>\n\n            <ion-row>\n                <ion-col>\n                    <button ion-button icon-start clear small>\n                            <ion-icon name="contact"></ion-icon>\n                            <div class="feed-author">{{ feed?.by }}</div>\n                    </button>\n                </ion-col>\n                <ion-col *ngIf="feedType !== \'job\'">\n                        <button (click)="viewComments(feed,$event)" ion-button icon-start clear small>\n                            <ion-icon name="text"></ion-icon>\n                            <div class="feed-comment-count">{{feed?.kids?.length || 0}} comments</div>\n                        </button>\n                </ion-col>\n            </ion-row>\n        </ion-card>\n\n    </div>\n\n    <!-- <ion-list > \n            <ion-item class="feed" *ngFor="let feed of feeds; let i = index;">\n                <div class="feed-index" item-content>{{feed?.score || 0}}</div>\n                <div class="feed-metadata" item-content>\n                    <h2 class="feed-header">\n                        <a class="feed-header-title" (click)="viewFeed(feed,$event)">{{ feed?.title }}</a>\n                    </h2>\n                    <div item-content>\n                        <span>By </span>\n                        <a (click)="viewUser(feed,$event)">{{ feed?.by }}</a>\n                        <a *ngIf="feedType !== \'job\'" (click)="viewComments(feed,$event)"> | {{feed?.kids?.length || 0}} comments</a>\n                    </div>\n                </div>\n            </ion-item>\n    </ion-list> -->\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n            <ion-refresher-content\n              pullingIcon="arrow-dropdown"\n              pullingText="Pull to refresh"\n              refreshingSpinner="dots"\n              refreshingText="Refreshing feed...">\n            </ion-refresher-content>\n    </ion-refresher>\n    <ion-infinite-scroll [class.hide]="initial" *ngIf="pageNumber !== totalPages" (ionInfinite)="loadMore($event)">\n        <ion-infinite-scroll-content loadingSpinner="dots">\n        </ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n\n<!-- <ion-content class="content-wrapper" *ngIf="initial">\n    \n</ion-content> -->'/*ion-inline-end:"/Users/Ese/Documents/dev/ionic-hacker-news/src/components/news-list/news-list.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */],
             __WEBPACK_IMPORTED_MODULE_5__shared_services_notification_service__["a" /* NotificationService */],
@@ -350,7 +350,7 @@ var NewsListComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 446:
+/***/ 450:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
